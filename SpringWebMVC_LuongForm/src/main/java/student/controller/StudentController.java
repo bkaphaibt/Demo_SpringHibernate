@@ -10,6 +10,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import student.entity.Student;
 
@@ -32,5 +33,10 @@ public class StudentController {
 	public String insertStudent(@ModelAttribute("s")Student stu, Model model) {
 		model.addAttribute("stu", stu);
 		return "viewStudent";
+	}
+	@RequestMapping("/initUpdateStudent")
+	public String initUpdateStudent(@RequestParam("stuId")Integer stuId, Model model) {
+		
+		return "updateStudent";
 	}
 }
